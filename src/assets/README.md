@@ -1,0 +1,1 @@
+Os assets institucionais permanecem referenciados a partir de `attached_assets` para preservar a identidade visual fornecida pela Prefeitura de Fortaleza.

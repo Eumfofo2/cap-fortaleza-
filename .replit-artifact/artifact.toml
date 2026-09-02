@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "FortClinic"
+description = "Plataforma comunitária de Fortaleza que conecta pessoas a profissionais e organizações de psicologia, advocacia e medicina, com busca por atendimento, perfis públicos e contato via WhatsApp."
+version = "1.0.0"
+id = "artifacts/fortclinic"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 22729
+
+[services.development]
+run = "pnpm --filter @workspace/fortclinic run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/fortclinic", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/fortclinic/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "22729"
+BASE_PATH = "/"
