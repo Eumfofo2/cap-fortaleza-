@@ -5,7 +5,7 @@ import { ButtonLink, Layout, PageIntro, StatusMessage } from '@/components/layou
 import { ModalidadeIcon, OrganizationCard, SelectField, Slot, WhatsAppButton } from '@/components/ui';
 import { atendimentosService } from '@/services/atendimentosService';
 import { organizacoesService } from '@/services/organizacoesService';
-import logo from '@assets/VgZcFtp8_200x200_1788380520593.jpg';
+import logo from '@assets/IMG-20260902-WA0016.jpg';
 import type { Area, Modalidade, Organizacao } from '@/types';
 
 const areaOptions = [{ value: 'psicologia', label: 'Psicologia' }, { value: 'advocacia', label: 'Advocacia' }, { value: 'medicina', label: 'Medicina' }, { value: 'outro', label: 'Outro' }];
