@@ -34,7 +34,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': `${import.meta.dirname}/src`,
-      '@assets': `${import.meta.dirname}/../../attached_assets`,
     },
     dedupe: ['react', 'react-dom'],
   },
