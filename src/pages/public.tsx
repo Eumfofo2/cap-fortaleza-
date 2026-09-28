@@ -6,11 +6,24 @@ import { ModalidadeIcon, OrganizationCard, SelectField, Slot, WhatsAppButton } f
 import { atendimentosService } from '@/services/atendimentosService';
 import { organizacoesService } from '@/services/organizacoesService';
 import logo from '@/assets/fortaleza.jpg';
+import atend from '@/assets/atend.jpg'
 import type { Area, Modalidade, Organizacao } from '@/types';
 
-const areaOptions = [{ value: 'psicologia', label: 'Psicologia' }, { value: 'advocacia', label: 'Advocacia' }, { value: 'medicina', label: 'Medicina' }, { value: 'outro', label: 'Outro' }];
-const modalityOptions = [{ value: 'online', label: 'Online' }, { value: 'presencial', label: 'Presencial' }];
-const regionOptions = ['Aldeota', 'Centro', 'Messejana', 'Bom Jardim', 'Parangaba'].map((value) => ({ value, label: value }));
+const areaOptions = [
+  { value: 'psicologia', label: 'Psicologia' },
+  { value: 'advocacia', label: 'Advocacia' },
+  { value: 'medicina', label: 'Medicina' },
+  { value: 'outro', label: 'Outro' }
+];
+const modalityOptions = [
+  { value: 'online', label: 'Online' },
+  { value: 'presencial', label: 'Presencial' }
+];
+const regionOptions = [
+  'Aldeota', 'Centro', 'Messejana', 'Bom Jardim', 'Parangaba'
+].map((value) => 
+  ({ value, label: value })
+);
 
 export function HomePage() {
   const [area, setArea] = useState('');
@@ -42,7 +55,21 @@ export function HomePage() {
       </div>
     </section>
     <section className="shell py-20"><div className="grid gap-10 md:grid-cols-[.8fr_1.2fr] md:items-end"><div><p className="eyebrow text-secondary-foreground">Como funciona</p><h2 className="mt-3 max-w-md font-serif text-4xl font-extrabold leading-tight tracking-[-.05em]">Sem labirinto.<br />Sem distância.</h2></div><p className="max-w-lg text-base leading-7 text-muted-foreground">A gente organiza as opções para você tomar uma decisão com calma. Escolha o tipo de apoio, conheça quem atende e combine o melhor jeito de conversar.</p></div><div className="mt-12 grid gap-4 md:grid-cols-3"><Step number="01" title="Conte o que precisa" text="Explore áreas e encontre o atendimento que faz sentido para o seu momento." /><Step number="02" title="Conheça as opções" text="Veja detalhes, horários, modalidade e se o atendimento é gratuito." /><Step number="03" title="Dê o primeiro passo" text="Fale pelo WhatsApp ou reserve um horário direto na plataforma." /></div></section>
-    <section className="bg-primary py-20 text-primary-foreground"><div className="shell grid gap-10 md:grid-cols-[1fr_auto] md:items-center"><div><p className="eyebrow text-accent">Para quem cuida</p><h2 className="mt-3 max-w-2xl font-serif text-4xl font-extrabold leading-tight tracking-[-.05em] md:text-5xl">Seu trabalho pode<br />alcançar mais gente.</h2><p className="mt-5 max-w-lg leading-7 text-primary-foreground/70">Cadastre seu projeto, clínica ou consultório e faça parte de uma rede que aproxima cuidado de quem precisa.</p></div><ButtonLink to="/account/comecar-perfil">Quero oferecer atendimento</ButtonLink></div></section>
+    <section 
+      style={{ backgroundImage: `url(${atend})` }}
+      className="bg-primary py-20 text-primary-foreground bg-cover bg-center bg-no-repeat w-full h-96"
+    >
+      <div className="shell grid gap-10 md:grid-cols-[1fr_auto] md:items-center">
+        <div>
+          {/* cadastro do prof */}
+          <p className="eyebrow text-accent">Para quem cuida</p>
+          <h2 className="mt-3 max-w-2xl font-serif text-4xl font-extrabold leading-tight tracking-[-.05em] md:text-5xl">Seu trabalho pode<br />alcançar mais gente.</h2>
+          <p className="mt-5 max-w-lg leading-7 text-primary-foreground/70">Cadastre seu projeto, clínica ou consultório e faça parte de uma rede que aproxima cuidado de quem precisa.
+          </p>
+        </div>
+        <ButtonLink to="/account/comecar-perfil">Quero oferecer atendimento</ButtonLink>
+      </div>
+    </section>
     <section className="shell py-20"><div className="flex flex-col justify-between gap-5 sm:flex-row sm:items-end"><div><p className="eyebrow text-secondary-foreground">Na rede FortClinic</p><h2 className="mt-3 font-serif text-3xl font-extrabold tracking-[-.05em]">Apoio para diferentes momentos</h2></div><Link to="/busca" className="flex items-center gap-1 text-sm font-bold text-secondary-foreground" data-testid="link-home-all">Ver todos <ArrowUpRight size={16} /></Link></div><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"><AreaTile area="psicologia" title="Psicologia" desc="Um lugar seguro para falar, elaborar e respirar." color="bg-[#f6ded8]" icon="♡" /><AreaTile area="advocacia" title="Advocacia" desc="Orientação para entender e defender seus direitos." color="bg-[#d8ece7]" icon="§" /><AreaTile area="medicina" title="Medicina" desc="Cuidado integral para você e sua família." color="bg-[#f4e9bd]" icon="+" /></div></section>
   </Layout>;
 }

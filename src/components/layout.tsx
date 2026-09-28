@@ -1,8 +1,6 @@
 import { useState, type ReactNode } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { ArrowRight, HeartHandshake, Menu, X } from 'lucide-react';
-import logo from '@assets/VgZcFtp8_200x200_1788380520593.jpg';
-
 interface LayoutProps { children: ReactNode; minimal?: boolean; }
 
 export function Layout({ children, minimal = false }: LayoutProps) {
@@ -18,7 +16,7 @@ export function Layout({ children, minimal = false }: LayoutProps) {
         <div className="shell flex h-[72px] items-center justify-between">
           <Link to="/" className="flex items-center gap-3" data-testid="link-logo">
             <span className="grid size-10 place-items-center rounded-xl bg-primary text-accent"><HeartHandshake size={22} strokeWidth={2.5} /></span>
-            <span className="leading-none"><strong className="block font-serif text-lg tracking-[-.04em]">fortclinic</strong><small className="font-mono text-[9px] uppercase tracking-[.16em] text-muted-foreground">cuidar é coletivo</small></span>
+            <span className="leading-none"><strong className="block font-serif text-lg tracking-[-.04em]">Fortclinic</strong><small className="font-mono text-[9px] uppercase tracking-[.16em] text-muted-foreground">cuidar é coletivo</small></span>
           </Link>
           {!minimal && <nav className="hidden items-center gap-8 md:flex" aria-label="Navegação principal">
             {links.map((link) => <NavLink key={link.to} to={link.to} className={({ isActive }) => `text-sm font-semibold transition-colors ${isActive ? 'text-primary' : 'text-muted-foreground hover:text-primary'}`} data-testid={`link-nav-${link.label}`}>{link.label}</NavLink>)}
